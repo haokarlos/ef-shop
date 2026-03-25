@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tienda - Eros Fantasy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -79,6 +79,19 @@
       text-align: center;
       max-width: 600px;
     }
+    .playfab-input {
+      margin-bottom: 20px;
+      font-size: 1em;
+      max-width: 350px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 2px solid #fc46aa;
+      background: #24222d;
+      color: #eee;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-align: center;
+    }
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -97,7 +110,7 @@
       transition: box-shadow 0.22s, transform 0.17s;
       border: 2px solid #fc46aa20;
       position: relative;
-      min-height: 230px;
+      min-height: 270px;
     }
     .card:hover {
       box-shadow: 0 4px 18px #e76ec42a, 0 1px 24px #fc46aa44;
@@ -148,6 +161,13 @@
       background: linear-gradient(90deg, #e76ec4, #fc46aa 80%);
       box-shadow: 0 5px 20px #fc46aa90;
     }
+    .message {
+      color: #fc46aa;
+      font-weight: 700;
+      margin-top: 12px;
+      min-height: 24px;
+      text-align: center;
+    }
     footer {
       background: #181820;
       color: #b8bad0;
@@ -157,57 +177,103 @@
       border-top: 2.5px solid #222227;
     }
     @media (max-width: 700px) {
-      .products { grid-template-columns: 1fr; gap: 20px; }
-      .container { padding: 12px 2% 18px 2%; }
+      .products {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .container {
+        padding: 12px 2% 18px 2%;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.jpg" alt="Logo Eros Fantasy" class="logo">
+    <img src="logo.jpg" alt="Logo Eros Fantasy" class="logo" />
     <nav>
       <a href="#">Tienda</a>
       <a href="#" style="color:#b4b6b9;">Web Principal</a>
     </nav>
   </header>
-  <img src="banner.jpg" alt="Banner Tienda Eros Fantasy" class="banner">
+  <img src="banner.jpg" alt="Banner Tienda Eros Fantasy" class="banner" />
   <div class="container">
     <div class="shop-title">Tienda Oficial - Eros Fantasy</div>
-    <div class="desc">Obtén gemas y el Pase de Batalla para potenciar tu aventura en el universo de Eros Fantasy. Compra segura y con múltiples métodos de pago. ¡Accede a contenido exclusivo y acelera tu progreso!</div>
+    <div class="desc">
+      Obtén gemas y el Pase de Batalla para potenciar tu aventura en el universo de Eros Fantasy. Compra segura y con múltiples métodos de pago. ¡Accede a contenido exclusivo y acelera tu progreso!
+    </div>
+
+    <input type="text" id="playfabId" class="playfab-input" placeholder="Introduce tu PlayFab ID" />
+    <div class="message" id="message"></div>
+
     <div class="products">
       <div class="card">
         <div class="pack-title">Pack Inicial de Gemas</div>
         <div class="pack-gems">200 💎</div>
         <div class="pack-desc">Ideal para jugadores primerizos que quieren un empujón extra.</div>
         <div class="price">$2.99 USD</div>
-        <button class="buy-btn">Comprar</button>
+        <button class="buy-btn" onclick="buy('pack-inicial')">Comprar</button>
       </div>
       <div class="card">
         <div class="pack-title">Pack Aventura</div>
         <div class="pack-gems">750 💎</div>
         <div class="pack-desc">Un pack completo para avanzar más rápido y desbloquear personajes.</div>
         <div class="price">$7.99 USD</div>
-        <button class="buy-btn">Comprar</button>
+        <button class="buy-btn" onclick="buy('pack-aventura')">Comprar</button>
       </div>
       <div class="card">
         <div class="pack-title">Pack Maestro</div>
         <div class="pack-gems">2,500 💎</div>
         <div class="pack-desc">Para quienes buscan la experiencia completa sin límites.</div>
         <div class="price">$19.99 USD</div>
-        <button class="buy-btn">Comprar</button>
+        <button class="buy-btn" onclick="buy('pack-maestro')">Comprar</button>
       </div>
       <div class="card">
         <div class="pack-title">Pase de Batalla (Ticket)</div>
         <div class="pack-gems">EXCLUSIVO</div>
         <div class="pack-desc">Desbloquea recompensas, skins y eventos únicos durante la temporada.</div>
         <div class="price">$9.99 USD</div>
-        <button class="buy-btn">Comprar</button>
+        <button class="buy-btn" onclick="buy('pase-batalla')">Comprar</button>
       </div>
     </div>
   </div>
   <footer>
-    © 2026 Eros Fantasy. Todos los derechos reservados.<br>
+    © 2026 Eros Fantasy. Todos los derechos reservados.<br />
     <a style="color:#fc46aa;text-decoration:none;" href="#">Política de Privacidad</a> &bull; <a style="color:#fc46aa;text-decoration:none;" href="#">Términos</a> &bull; <a style="color:#fc46aa;text-decoration:none;" href="#">Soporte</a>
   </footer>
+
+  <script>
+    const messageEl = document.getElementById('message');
+
+    async function buy(packKey) {
+      messageEl.textContent = '';
+      const playfabId = document.getElementById('playfabId').value.trim();
+      if (!playfabId) {
+        messageEl.textContent = 'Por favor, introduce tu PlayFab ID.';
+        return;
+      }
+
+      messageEl.textContent = 'Procesando compra...';
+
+      try {
+        const response = await fetch('/api/purchase', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ playfabId, packKey })
+        });
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          messageEl.style.color = '#6cec7c';
+          messageEl.textContent = `Compra exitosa: ${data.result}`;
+        } else {
+          messageEl.style.color = '#fc46aa';
+          messageEl.textContent = `Error en la compra: ${data.error || 'desconocido'}`;
+        }
+      } catch (error) {
+        messageEl.style.color = '#fc46aa';
+        messageEl.textContent = `Error en la compra: ${error.message}`;
+      }
+    }
+  </script>
 </body>
 </html>
