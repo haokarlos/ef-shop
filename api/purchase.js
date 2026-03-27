@@ -28,7 +28,7 @@ export default async function handler(req, res) {
       url = `https://${PLAYFAB_TITLE_ID}.playfabapi.com/Server/AddUserVirtualCurrency`;
       requestPayload = {
         "PlayFabId": playfabId,
-        "VirtualCurrency": "GD",
+        "VirtualCurrency": "GM",
         "Amount": pack.gems
       };
     } else if (pack.special) {
