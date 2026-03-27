@@ -229,7 +229,7 @@
       </div>
       <div class="card">
         <div class="pack-title">Pase de Batalla (Ticket)</div>
-        <div class="pack-gems">EXCLUSIVO</div>
+        <div class="pack-gems">1 🎟️</div>
         <div class="pack-desc">Desbloquea recompensas, skins y eventos únicos durante la temporada.</div>
         <div class="price">$5 USD</div>
         <button class="buy-btn" onclick="buy('chest_battle_tickets_pack_01')">Comprar</button>
@@ -244,8 +244,17 @@
   <script>
     const messageEl = document.getElementById('message');
 
+    function parseResultMessage(result) {
+      if (!result) return 'Compra exitosa';
+      if (result.error) return `Error: ${result.error.message || result.error}`;
+      if (result.data) return `Compra procesada: ${JSON.stringify(result.data)}`;
+      return 'Compra exitosa';
+    }
+
     async function buy(packKey) {
+      messageEl.style.color = '#fc46aa';
       messageEl.textContent = '';
+
       const playfabId = document.getElementById('playfabId').value.trim();
       if (!playfabId) {
         messageEl.textContent = 'Por favor, introduce tu PlayFab ID.';
@@ -264,7 +273,7 @@
 
         if (response.ok && data.success) {
           messageEl.style.color = '#6cec7c';
-          messageEl.textContent = `Compra exitosa: ${data.result}`;
+          messageEl.textContent = parseResultMessage(data.result);
         } else {
           messageEl.style.color = '#fc46aa';
           messageEl.textContent = `Error en la compra: ${data.error || 'desconocido'}`;
