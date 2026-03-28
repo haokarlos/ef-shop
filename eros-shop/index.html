@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda - Eros Fantasy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #15151a;
+      color: #f6f6fa;
+      font-family: 'Roboto', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #181820;
+      padding: 24px 0 10px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px #0a0a0cb8;
+    }
+    .logo {
+      max-width: 180px;
+      margin-bottom: 10px;
+    }
+    nav {
+      margin-bottom: 8px;
+    }
+    nav a {
+      color: #fc46aa;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      margin: 0 15px;
+      letter-spacing: 1px;
+      transition: color 0.25s;
+    }
+    nav a:hover {
+      color: #e76ec4;
+      text-shadow: 0 0 6px #fc46aa90;
+    }
+    .banner {
+      width: 100%;
+      max-height: 210px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 8px;
+      box-shadow: 0 8px 16px #11001470;
+      border-radius: 0 0 14px 14px;
+    }
+    .container {
+      flex: 1;
+      width: 100%;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 32px 12px 24px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .shop-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fc46aa;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #e76ec480;
+    }
+    .desc {
+      color: #cdd0e0;
+      font-size: 1.08em;
+      margin-bottom: 34px;
+      text-align: center;
+      max-width: 600px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 34px;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: linear-gradient(145deg, #24222d 60%, #20142a 100%);
+      border-radius: 14px;
+      box-shadow: 0 2px 18px #00000035;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 26px 20px 22px 20px;
+      transition: box-shadow 0.22s, transform 0.17s;
+      border: 2px solid #fc46aa20;
+      position: relative;
+      min-height: 230px;
+    }
+    .card:hover {
+      box-shadow: 0 4px 18px #e76ec42a, 0 1px 24px #fc46aa44;
+      transform: translateY(-4px) scale(1.025);
+      border-color: #e76ec480;
+    }
+    .pack-title {
+      font-size: 1.25em;
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: #e76ec4;
+      text-shadow: 0 1px 7px #83004d60;
+    }
+    .pack-desc {
+      font-size: 1em;
+      color: #ded9e9;
+      min-height: 50px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .pack-gems {
+      font-size: 2em;
+      color: #fc46aa;
+      margin-bottom: 8px;
+      font-weight: 600;
+      text-shadow: 0 4px 12px #fc46aa80;
+    }
+    .price {
+      font-size: 1.22em;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .buy-btn {
+      background: linear-gradient(90deg, #fc46aa60, #e76ec4 70%);
+      color: #fff;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 30px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: auto;
+      transition: background 0.22s, box-shadow 0.18s;
+      box-shadow: 0 2px 8px #fc46aa30;
+    }
+    .buy-btn:hover {
+      background: linear-gradient(90deg, #e76ec4, #fc46aa 80%);
+      box-shadow: 0 5px 20px #fc46aa90;
+    }
+    footer {
+      background: #181820;
+      color: #b8bad0;
+      font-size: 0.98em;
+      text-align: center;
+      padding: 16px 10px;
+      border-top: 2.5px solid #222227;
+    }
+    @media (max-width: 700px) {
+      .products { grid-template-columns: 1fr; gap: 20px; }
+      .container { padding: 12px 2% 18px 2%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.jpg" alt="Logo Eros Fantasy" class="logo">
+    <nav>
+      <a href="#">Tienda</a>
+      <a href="#" style="color:#b4b6b9;">Web Principal</a>
+    </nav>
+  </header>
+  <img src="banner.jpg" alt="Banner Tienda Eros Fantasy" class="banner">
+  <div class="container">
+    <div class="shop-title">Tienda Oficial - Eros Fantasy</div>
+    <div class="desc">Obtén gemas y el Pase de Batalla para potenciar tu aventura en el universo de Eros Fantasy. Compra segura y con múltiples métodos de pago. ¡Accede a contenido exclusivo y acelera tu progreso!</div>
+    <div class="products">
+      <div class="card">
+        <div class="pack-title">Pack Inicial de Gemas</div>
+        <div class="pack-gems">200 💎</div>
+        <div class="pack-desc">Ideal para jugadores primerizos que quieren un empujón extra.</div>
+        <div class="price">$2.99 USD</div>
+        <button class="buy-btn">Comprar</button>
+      </div>
+      <div class="card">
+        <div class="pack-title">Pack Aventura</div>
+        <div class="pack-gems">750 💎</div>
+        <div class="pack-desc">Un pack completo para avanzar más rápido y desbloquear personajes.</div>
+        <div class="price">$7.99 USD</div>
+        <button class="buy-btn">Comprar</button>
+      </div>
+      <div class="card">
+        <div class="pack-title">Pack Maestro</div>
+        <div class="pack-gems">2,500 💎</div>
+        <div class="pack-desc">Para quienes buscan la experiencia completa sin límites.</div>
+        <div class="price">$19.99 USD</div>
+        <button class="buy-btn">Comprar</button>
+      </div>
+      <div class="card">
+        <div class="pack-title">Pase de Batalla (Ticket)</div>
+        <div class="pack-gems">EXCLUSIVO</div>
+        <div class="pack-desc">Desbloquea recompensas, skins y eventos únicos durante la temporada.</div>
+        <div class="price">$9.99 USD</div>
+        <button class="buy-btn">Comprar</button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    © 2026 Eros Fantasy. Todos los derechos reservados.<br>
+    <a style="color:#fc46aa;text-decoration:none;" href="#">Política de Privacidad</a> &bull; <a style="color:#fc46aa;text-decoration:none;" href="#">Términos</a> &bull; <a style="color:#fc46aa;text-decoration:none;" href="#">Soporte</a>
+  </footer>
+</body>
+</html>
