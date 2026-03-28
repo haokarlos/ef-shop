@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tienda - Eros Fantasy</title>
+  <link href="img/favicon.ico" rel="icon" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -185,17 +186,19 @@
         padding: 12px 2% 18px 2%;
       }
     }
+    .pack-img { width: 120px; height: 120px; border-radius: 14px; margin-bottom: 12px; object-fit: contain; }
+    .ticket-icon { width: 140px; height: 140px; margin: 0 auto 18px auto; display: block; }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.jpg" alt="Logo Eros Fantasy" class="logo" />
+    <img src="img/Logo_Eros_Fantasy.png" alt="Logo Eros Fantasy" class="logo" />
     <nav>
       <a href="#">Tienda</a>
       <a href="#" style="color:#b4b6b9;">Web Principal</a>
     </nav>
   </header>
-  <img src="banner.jpg" alt="Banner Tienda Eros Fantasy" class="banner" />
+  <img src="img/Head_Banner_ErosFantasy.webp" alt="Banner Tienda Eros Fantasy" class="banner" />
   <div class="container">
     <div class="shop-title">Tienda Oficial - Eros Fantasy</div>
     <div class="desc">
@@ -207,6 +210,7 @@
 
     <div class="products">
       <div class="card">
+        <img src="img/UI_Image_GemsPack_1.png" alt="Pack 01 Imagen" class="pack-img" />
         <div class="pack-title">Pack 01 de Gemas</div>
         <div class="pack-gems">250 💎</div>
         <div class="pack-desc">Ideal para jugadores que quieren un empujón extra.</div>
@@ -214,6 +218,7 @@
         <button class="buy-btn" onclick="buy('chest_gemsPack_01')">Comprar</button>
       </div>
       <div class="card">
+        <img src="img/UI_Image_GemsPack_2.png" alt="Pack 02 Imagen" class="pack-img" />
         <div class="pack-title">Pack 02 de Gemas</div>
         <div class="pack-gems">530 💎</div>
         <div class="pack-desc">Un pack completo para avanzar más rápido y desbloquear personajes.</div>
@@ -221,6 +226,7 @@
         <button class="buy-btn" onclick="buy('chest_gemsPack_02')">Comprar</button>
       </div>
       <div class="card">
+        <img src="img/UI_Image_GemsPack_3.png" alt="Pack 03 Imagen" class="pack-img" />
         <div class="pack-title">Pack 03 de Gemas</div>
         <div class="pack-gems">1,400 💎</div>
         <div class="pack-desc">Para quienes buscan la experiencia completa sin límites.</div>
@@ -228,6 +234,7 @@
         <button class="buy-btn" onclick="buy('chest_gemsPack_03')">Comprar</button>
       </div>
       <div class="card">
+        <img src="img/UI_Icon_BattlePass.png" alt="Icono Pase de Batalla" class="pack-img ticket-icon" />
         <div class="pack-title">Pase de Batalla (Ticket)</div>
         <div class="pack-gems">1 🎟️</div>
         <div class="pack-desc">Desbloquea recompensas, skins y eventos únicos durante la temporada.</div>
